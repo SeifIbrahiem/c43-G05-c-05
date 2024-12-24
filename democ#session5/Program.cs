@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Design;
+using System.Threading.Channels;
 
 namespace democ_session5
 {
@@ -6,27 +7,38 @@ namespace democ_session5
     {
         static void Main(string[] args)
         {
-            //null propagation operator ?
-            //double x = default; 
-            //Console.WriteLine(x); //0
-            //char c = default;
-            //Console.WriteLine(c); //space
-            //bool c = default;
-            //Console.WriteLine(c);
+            //Exception handling and protecive code
+            //try && catch    من خلال execepption تهندل ال 
+            //Exception 
+            //1.system exeception 
+            //1.1 format exception
+            //1.2 index out of range exception 
+            //1.3 null reference exception 
+            //1.4 arthimetic exception 
+            //1.4.1 over flow exeception 
+            //1.4.2 divid by zero exeception 
 
-            // the default value with reference type is nuul 
-            //int[] Arr = default;
-            //for (int i = 0; i < args.Length; i++)
-            //    Console.WriteLine(Arr[i]); // null reference exception
-            //int[] Arr = { 1, 2, 3, 4, 5 };
-            ////Best practice 
-            //if (Arr is not null)
-            //{
-            //    for (int i = 0; i < args.Length; i++)
-            //        Console.WriteLine(Arr[i]);
-            //}
-            //int Len = arr.Length;
-            //Console.WriteLine(Len);
+            //2. application exception 
+            try
+            {
+                int x, y, z;
+                x = int.Parse(Console.ReadLine());
+                y = int.Parse(Console.ReadLine());
+
+                z = x / y;
+
+                int[] arr = { 1, 2, 3 };
+
+                arr[99] = 10;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally {
+                Console.WriteLine("finally");
+            // disconnect | dispose un managed resource
+            }
         }
     }
 }
